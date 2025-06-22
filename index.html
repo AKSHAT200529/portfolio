@@ -484,6 +484,219 @@
                     grid-template-columns: 1fr;
                 }
             }
+            .resume-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.resume-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Resume Info Section */
+.resume-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.resume-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.resume-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+}
+
+.detail-item .icon {
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+/* Download Area */
+.download-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    color: #333;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.card-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: #333;
+}
+
+.file-type {
+    background: #667eea;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.card-body p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Download Button */
+.download-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover .btn-icon {
+    transform: translateY(2px);
+}
+
+/* Loading State */
+.download-btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.download-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .resume-info h2 {
+        font-size: 2rem;
+    }
+    
+    .resume-details {
+        align-items: center;
+    }
+    
+    .download-card {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-section {
+        padding: 60px 0;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .resume-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .download-card {
+        padding: 25px;
+        margin: 0 10px;
+    }
+}
         </style>
     </head>
     <body>
@@ -528,6 +741,48 @@
                 </div>
             </div>
         </section>
+         <section id="resume-download" class="resume-section">
+        <div class="container">
+            <div class="resume-content">
+                <div class="resume-info">
+                    <h2>Download My Resume</h2>
+                    <p>Get a copy of my professional resume to learn more about my experience, skills, and achievements.</p>
+                    <div class="resume-details">
+                        <div class="detail-item">
+                            <span class="icon">📄</span>
+                            <span>PDF Format</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📊</span>
+                            <span>Latest Version</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">⚡</span>
+                            <span>Quick Download</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="download-area">
+                    <div class="download-card">
+                        <div class="card-header">
+                            <h3>Professional Resume</h3>
+                            <span class="file-type">PDF</span>
+                        </div>
+                        <div class="card-body">
+                            <p>Complete professional resume including work experience, education, and skills.</p>
+                            <button id="downloadBtn" class="download-btn">
+                                <span class="btn-icon">⬇️</span>
+                                Download Resume
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/resume-section.js"></script>
         
         <!-- Certifications Section -->
         <section id="certifications" class="certifications">
@@ -759,6 +1014,140 @@ document.querySelectorAll('nav a').forEach(anchor => {
                     nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
                 }
             });
+            document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.getElementById('downloadBtn');
+    
+    // Resume file path (same folder as index.html)
+    const resumeFilePath = 'resume.pdf'; // Resume file in root directory
+    
+    downloadBtn.addEventListener('click', function() {
+        downloadResume();
+    });
+    
+    function downloadResume() {
+        // Debug: Check if file exists
+        console.log('Trying to download from:', resumeFilePath);
+        
+        // Test if file exists first
+        fetch(resumeFilePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('File not found');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                // File exists, proceed with download
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Arihantsingh_Resume.pdf'; // Change this to your preferred filename
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Clean up
+                window.URL.revokeObjectURL(url);
+                
+                showNotification('Resume downloaded successfully!', 'success');
+            })
+            .catch(error => {
+                console.error('Download failed:', error);
+                showNotification('Resume file not found. Please check the file path.', 'error');
+            })
+            .finally(() => {
+                resetButton();
+            });
+        
+        // Add loading state
+        downloadBtn.classList.add('loading');
+        downloadBtn.innerHTML = '<span class="btn-icon"></span>Downloading...';
+    }
+    
+    function resetButton() {
+        downloadBtn.classList.remove('loading');
+        downloadBtn.innerHTML = '<span class="btn-icon">⬇️</span>Download Resume';
+    }
+    
+    function showNotification(message, type) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            font-weight: 500;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        `;
+        
+        // Add to body
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+    
+    // Alternative method: Direct file serving (if you have the file in your project)
+    function downloadResumeAlternative() {
+        try {
+            // Method 1: Direct download link
+            window.open(resumeFilePath, '_blank');
+            
+            // Method 2: Force download
+            // const link = document.createElement('a');
+            // link.href = resumeFilePath;
+            // link.target = '_blank';
+            // link.download = 'Your_Name_Resume.pdf';
+            // link.click();
+            
+        } catch (error) {
+            console.error('Download failed:', error);
+            showNotification('Download failed. Please try again.', 'error');
+        }
+    }
+    
+    // Add smooth scroll animation when section comes into view
+    const resumeSection = document.getElementById('resume-download');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    // Initial state for animation
+    resumeSection.style.opacity = '0';
+    resumeSection.style.transform = 'translateY(30px)';
+    resumeSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    
+    observer.observe(resumeSection);
+});
         </script>
     </body>
     </html>
